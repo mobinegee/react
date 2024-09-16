@@ -1,0 +1,164 @@
+/* تنظیمات کلی */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* این به صفحه اجازه می‌دهد که حداقل ارتفاع صفحه را بپوشاند */
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* استایل‌های هدر و فوتر */
+.Header, .Footer {
+    /* استایل‌های هدر و فوتر */
+}
+
+.footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0; /* حاشیه بالایی */
+}
+
+/* استایل‌های صفحه محصول */
+.productdetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.productimage {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.productimage img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.productimage img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.productinfo {
+    text-align: center;
+    max-width: 600px;
+}
+
+.productinfo ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.productinfo li {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.productinfo li:hover {
+    background-color: #e2e6ea;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #d32f2f;
+    margin: 20px 0;
+}
+
+.addtocart {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addtocart:hover {
+    background-color: #45a049;
+}
+
+/* استایل کارت محصولات مشابه */
+.productgrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.productcard {
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    width: 100%;
+    max-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px;
+}
+
+.productcard img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.productcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.productcardinfo h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.customlink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin: 10px;
+}
+
+.customlink:hover {
+    background-color: #0b5ed7;
+    color: white;
+}
+
+.moshabeh {
+    text-align: center;
+}
