@@ -97,4 +97,13 @@
       width: 100%;
       height: auto;
     }
+    .navbar a {
+      float: right;
+      font-size: 14px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
   }

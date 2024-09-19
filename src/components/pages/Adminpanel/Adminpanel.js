@@ -45,7 +45,9 @@ export default function AdminPanel() {
     formData.append("updated_at", new Date().toISOString());
 
     try {
-      const response = await fetch("https://backendreact-avco.onrender.com/api/products/post", {
+      // const response = await fetch("https://backendreact.vercel.app/api/products/post", {
+      // const response = await fetch("http://localhost:5200/api/products/post", {
+        const response = await fetch("https://backendreact.vercel.app/api/products/post", {
         method: "POST",
         body: formData,
       });
@@ -194,9 +196,9 @@ export default function AdminPanel() {
           </form>
         </div>
       </div>
-      <div className={styles.footer}>
+      {/* <div className={styles.footer}>
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 }

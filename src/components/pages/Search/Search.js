@@ -9,24 +9,26 @@ export default function Search() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
     const { resultsearch } = useParams(); 
+    const [status , setstatus] = useState(200);
 
     async function getAllProducts() {
         try {
             const response = await fetch(
-                `https://backendreact-avco.onrender.com/api/products/search?name=${resultsearch}`,
+                `https://backendreact.vercel.app/api/products/search?name=${resultsearch}`,
                 {
                     method: "GET",
                 }
             );
 
-            if (!response.ok) {
-                throw new Error(
-                    `Error fetching data! HTTP Status: ${response.status}`
-                );
-            }
+            // if (!response.ok) {
+            //     throw new Error(
+            //         `Error fetching data! HTTP Status: ${response.status}`
+            //     );
+            // }
 
             const result = await response.json();
             setProducts(result);
+            setError(null); // reset error if successful
         } catch (error) {
             setError("Error fetching products. Please try again later.");
             console.error("Error fetching products:", error);
@@ -45,12 +47,11 @@ export default function Search() {
             <Navbar />
             <main className={styles.content}>
                 <div className={styles.productgrid}>
-                    {error && <h4 className={styles.error}>{error}</h4>}
                     {products.length > 0 ? (
                         products.map((product) => (
                             <div className={styles.productcard} key={product.id}>
                                 <img
-                                    src={`https://backendreact-avco.onrender.com/uploads/${product.image_url}`}
+                                    src={`${product.image_url}`}
                                     alt={product.name}
                                 />
                                 <div className={styles.productcardinfo}>
@@ -67,7 +68,11 @@ export default function Search() {
                             </div>
                         ))
                     ) : (
-                        !error && <h4 className={styles.notproduct}>برای جستجوی  {resultsearch} چیزی یافت نشد </h4>
+                        !error && (
+                            <h4 className={styles.notproduct}>
+                                برای جستجوی {resultsearch} چیزی یافت نشد
+                            </h4>
+                        )
                     )}
                 </div>
             </main>

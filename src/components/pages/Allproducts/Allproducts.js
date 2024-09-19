@@ -12,7 +12,7 @@ export default function Allproducts() {
     async function getAllProducts() {
         try {
             const response = await fetch(
-                `https://backendreact-avco.onrender.com/api/products/getproducts/`,
+                `https://backendreact.vercel.app/api/products/getproducts/`,
                 {
                     method: "GET",
                 }
@@ -44,7 +44,7 @@ export default function Allproducts() {
                     products.map((product) => (
                         <div className={styles.productcard} key={product.id}>
                             <img
-                                src={`https://backendreact-avco.onrender.com/uploads/${product.image_url}`}
+                                src={`https://backendreact.vercel.app/uploads/${product.image_url}`}
                                 alt={product.name}
                             />
                             <div className={styles.productcardinfo}>

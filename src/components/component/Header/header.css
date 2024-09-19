@@ -1,6 +1,7 @@
 /* header.css */
 .header {
     width: 100%;
+    direction: rtl;
     text-align: center;
     overflow: hidden;
     height: 80px;
@@ -24,8 +25,8 @@
 
 .namesite {
     width: 50%;
-    justify-content: flex-end;
-    padding-right: 10px;
+    justify-content: flex-start;
+    /* padding-right: 10px; */
 }
 
 .namesite a {
@@ -34,15 +35,37 @@
     margin: 0 10px;
     white-space: nowrap;
 }
+.namesite h1{
+    /* margin-left: 50px; */
+}
 
 .namesite input {
     text-align: right;
-    font-size: 15px;
-    padding: 10px;
-    width: 300px;
-    border-radius: 20px;
-    margin-right: 30px;
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 50px;
+    border: 2px solid #ddd;
+    margin-right: 60px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
 }
+.namesite input:focus  {
+    outline: none;
+    border-color: #0d6efd; /* رنگ سبز هنگام فوکوس */
+    box-shadow: 0px 4px 12px #0d6efd;
+
+}
+.namesite input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.namesite input:hover {
+    border-color: #888;
+}
+
 
 .shap img {
     width: 30px;
@@ -55,37 +78,50 @@
     height: 40px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .header {
         flex-direction: column;
         height: auto;
-        padding: 10px 0; /* فاصله داخلی برای موبایل */
+        padding: 10px 0;
     }
     
     .shap,
     .namesite {
         width: 100%;
-        justify-content: center; /* مرکز کردن در حالت موبایل */
-        margin: 10px 0; /* فاصله عمودی */
+        justify-content: center;
+        margin: 10px 0;
     }
     
     .namesite {
-        flex-direction: column;
-        align-items: stretch; /* تنظیم عرض 100% */
+        flex-direction: row; /* به صورت افقی کنار هم */
+        justify-content: space-between; /* فاصله بین عناصر */
+        width: 100%;
     }
-    
-    .namesite a {
-        margin: 5px 0;
-        font-size: 14px;
+
+    .namesite a,
+    .namesite form {
+        width: 45%; /* کمی کمتر از 50% تا فضا برای هر دو عنصر باشد */
+        box-sizing: border-box;
     }
-    
+    .namesite a{
+        text-align: right;
+
+    }
+
+
     .namesite input {
-        width: calc(100% - 20px); /* تنظیم عرض با توجه به padding */
-        margin-right: 0; /* حذف فاصله سمت راست */
+        width: 100%;
+        margin-right: 0px !important;
+        max-width: 200px;
     }
-    
+
     .shap img {
         width: 25px;
         height: 25px;
     }
+    .shap img:hover {
+        width: 27px;
+        height: 27px;
+    }
 }
+

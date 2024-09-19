@@ -15,24 +15,24 @@ const Home = () => {
           <p>سبک های فصلی و مجموعه های منحصر به فرد را کشف کنید</p>
           <Link to='/react/Allproducts' className='hero-button'>خرید</Link>
         </div>
-        <img src="images/1.webp" alt="Fashion Background" className='hero-image' />
+        <img src="https://mobinegee.github.io/react/images/1.webp" alt="Fashion Background" className='hero-image' />
       </section>
       <section className='collections'>
         <div className='collection-item'>
           <Link to='/react/Allproducts'>
-            <img src="images/9.webp" alt="Product 2" />
+            <img src="https://mobinegee.github.io/react/images/9.webp" alt="Product 2" />
           </Link>
           <h2>جدید</h2>
         </div>
         <div className='collection-item'>
           <Link to='/react/productcategory/school'>
-            <img src="images/5.webp" alt="Product 2" />
+            <img src="https://mobinegee.github.io/react/images/5.webp" alt="Product 2" />
           </Link>
           <h2>مدرسه</h2>
         </div>
         <div className='collection-item'>
           <Link to='/react/productcategory/girl'>
-            <img src="images/4.webp" alt="Product 2" />
+            <img src="https://mobinegee.github.io/react/images/4.webp" alt="Product 2" />
           </Link>
           <h2>دخترانه</h2>
         </div>
@@ -42,19 +42,19 @@ const Home = () => {
         <div className='featured-grid'>
           <div className='featured-item'>
             <Link to='/react/productcategory/home'>
-              <img src="images/1.webp" alt="Product 2" />
+              <img src="https://mobinegee.github.io/react/images/1.webp" alt="Product 2" />
             </Link>
             <h3>لباس خانه</h3>
           </div>
           <div className='featured-item'>
             <Link to='/react/productcategory/man'>
-              <img src="images/2.webp" alt="Product 2" />
+              <img src="https://mobinegee.github.io/react/images/2.webp" alt="Product 2" />
             </Link>
             <h3>لباس مردانه</h3>
           </div>
           <div className='featured-item'>
             <Link to='/react/productcategory/men'>
-              <img src="images/8.webp" alt="Product 2" />
+              <img src="https://mobinegee.github.io/react/images/8.webp" alt="Product 2" />
             </Link>
             <h3>لباس زنانه</h3>
           </div>

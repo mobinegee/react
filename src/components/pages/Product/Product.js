@@ -5,7 +5,7 @@ import Footer from '../../component/footer/footer';
 import styles from './styles.module.css';
 import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import LoadingComponent from "../../component/Loading/Loading";
 const Product = () => {
     const [product, setProduct] = useState(null);
     const [products, setProducts] = useState([]);
@@ -13,6 +13,7 @@ const Product = () => {
     const [descriptionItems, setDescriptionItems] = useState([]);
     const [showCategory, setShowCategory] = useState(false);
     const { id: productId } = useParams();
+    const [isloading, setisloading] = useState(true)
 
     useEffect(() => {
         getProductById();
@@ -27,7 +28,7 @@ const Product = () => {
 
     async function getProductById() {
         try {
-            const response = await fetch(`https://backendreact-avco.onrender.com/api/products/products/${productId}`, {
+            const response = await fetch(`https://backendreact.vercel.app/api/products/products/${productId}`, {
                 method: 'GET',
             });
 
@@ -37,6 +38,7 @@ const Product = () => {
 
             const result = await response.json();
             setProduct(result);
+            setisloading(false)
             getAllProducts(result.category_id); // Fetch related products based on category
         } catch (error) {
             console.error('Error fetching product details:', error);
@@ -45,7 +47,7 @@ const Product = () => {
 
     async function getAllProducts(categoryId) {
         try {
-            const response = await fetch(`https://backendreact-avco.onrender.com/api/products/productscategory/${categoryId}`, {
+            const response = await fetch(`https://backendreact.vercel.app/api/products/productscategory/${categoryId}`, {
                 method: 'GET',
             });
 
@@ -57,6 +59,7 @@ const Product = () => {
             if (result.length > 1) {
                 setShowCategory(true);
             }
+            console.log('result category =>' , result)
             setProducts(result.filter((prod) => prod.id !== Number(productId)));
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -81,7 +84,7 @@ const Product = () => {
         });
     };
 
-    if (!product) return <div>Loading...</div>;
+    // if (!product) return <div>Loading...</div>;
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -94,11 +97,16 @@ const Product = () => {
         <div className={styles.home}>
             <Header />
             <Navbar />
-            <div className={styles.container}>
+            {isloading ? (
+                <>
+                <LoadingComponent />
+                </>
+                ) : (
+                <><div className={styles.container}>
                 <div className={styles.productdetails}>
                     <div className={styles.productimage}>
                         <img
-                            src={`https://backendreact-avco.onrender.com/uploads/${product.image_url}`}
+                            src={`${product.image_url}`}
                             alt={product.name}
                         />
                     </div>
@@ -122,7 +130,7 @@ const Product = () => {
                             {products.map((product) => (
                                 <div className={styles.productcard} key={product.id}>
                                     <img
-                                        src={`https://backendreact-avco.onrender.com/uploads/${product.image_url}`}
+                                        src={`${product.image_url}`}
                                         alt={product.name}
                                     />
                                     <div className={styles.productcardinfo}>
@@ -140,7 +148,7 @@ const Product = () => {
                         </div>
                     </>
                 )}
-            </div>
+            </div></>)}
             <Footer />
         </div>
     );

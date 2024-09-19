@@ -36,7 +36,7 @@ export default function Cart() {
               {cartItems.map(item => (
                 <div className="cart-item" key={item.id}>
                   <img
-                    src={`https://backendreact-avco.onrender.com/uploads/${item.image_url}`}
+                    src={`${item.image_url}`}
                     alt={item.name}
                     className="cart-item-image"
                   />
